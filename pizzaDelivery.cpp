@@ -83,10 +83,18 @@ ll pwr(ll a, ll b) {a %= mod; ll res = 1; while (b > 0) {if (b & 1) res = res * 
 
 
 
+
 vector<char> op(4); //we declare our 4 operators
 
 
-vll dx = {-1, 0, 0, 1};
+
+// Go north, she reaches street crossing (i−1,j). 
+// Go east, she reaches street crossing (i,j+1).
+// Go west, she reaches street crossing (i,j−1).
+// Go south, she reaches street crossing (i+1,j).
+// Stay at street crossing (i,j).
+
+vll dx = {-1, 0, 0, 1}; //look above if you see any pattern
 
 vll dy = {0, 1, -1, 0};//the directions are N, E, W, S
 
@@ -135,7 +143,7 @@ int main() {
         cout << "Case #" << T - t << ": ";
         sans = "NO";
         ans = temp = sum = 0;
-        cin >> n>>p>>m>>ar>>ac; 
+        cin >> n>>p>>m>>ar>>ac; //respectively the grid size, the number of pizzas, the limit of minutes and the current position of Ada
         fo(i,0,3)
         {
             cin>>op[i]; //each operation will be read
@@ -156,7 +164,7 @@ int main() {
 
         //we initialize all the dp with -inf
         ll k,mask;
-       
+
         fo(i,1,n)
         {
             fo(j,1,n)
